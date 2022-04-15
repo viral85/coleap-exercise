@@ -3,11 +3,15 @@ class Api::V1::VehiclesController < ApplicationController
     if params[:sort].present? && ['ASC','DESC'].include?(params[:sort])
       sort = params[:sort]
     end
+    @vehicles = Vehicle.includes(:vehicle_maker, :vehicle_colors).joins(:vehicle_maker)
+    if params[:make].present?
+      @vehicles = @vehicles.where("vehicle_makers.name ilike ?", params[:make])
+    end
 
     if sort
-      @vehicles = Vehicle.includes(:vehicle_maker, :vehicle_colors).order(price: params[:sort])
+      @vehicles = @vehicles.order(price: params[:sort])
     else
-      @vehicles = Vehicle.includes(:vehicle_maker, :vehicle_colors).all
+      @vehicles.all
     end
   end
 
