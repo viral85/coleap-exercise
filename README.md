@@ -1,24 +1,24 @@
-# README
+```sh
+rails s
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Desire result url
+Create an (REST or GraphQL) API endpoint to retrieve all the records with the given structure
+```sh
+GET localhost:3000/api/v1/vehicles
+```
 
-Things you may want to cover:
+The endpoint should allow to sort based on price
+```sh
+GET localhost:3000/api/v1/vehicles?sort=ASC
+GET localhost:3000/api/v1/vehicles?sort=DESC
+```
 
-* Ruby version
+The endpoint should allow to search by make
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+GET localhost:3000/api/v1/vehicles?make=audi
+GET localhost:3000/api/v1/vehicles?nake=tesla
+GET localhost:3000/api/v1/vehicles?make=tesla&sort=ASC
+GET localhost:3000/api/v1/vehicles?make=tesla&sort=DESC
+```
