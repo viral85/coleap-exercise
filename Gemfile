@@ -22,6 +22,11 @@ gem 'puma', '~> 4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'rabl'
+# Also add either `oj` or `yajl-ruby` as the JSON parser
+# If using `oj`, Rabl will set the mode to :compat
+gem 'oj'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
